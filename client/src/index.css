@@ -19,7 +19,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-font-family: 'Montserrat', sans-serif;}
+font-family: 'Montserrat', sans-serif;
+}
 
 body {
   background-color: #000; /* Black background for outside mobile area */
