@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Color Variables extracted from the image */
+  --color-bg-primary: #28282B;    /* Deep dark background */
+  --color-bg-secondary: #27272a;  /* Slightly lighter for cards/buttons */
+  --color-accent: #fbbf24;        /* Gold/Yellow for icons and text */
+  --color-text-primary: #ADA5A5;  /* White text */
+  --color-text-secondary: #a1a1a9; /* Grey text for subtitles */
+  --color-border: #3f3f46;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+font-family: 'Montserrat', sans-serif;}
+
+body {
+  background-color: #000; /* Black background for outside mobile area */
+  color: var(--color-text-primary);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Mobile Constraint Container */
+#root {
+  width: 100%;
+  max-width: 480px; /* Typical mobile max-width */
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- OPTIONAL: Strictly hide on Desktop --- */
+@media (min-width: 481px) {
+  .mobile-only-warning {
+    display: flex !important;
+  }
+  .app-content {
+    display: none !important;
+  }
+}
+
+/* Helper Classes */
+.text-gold { color: var(--color-accent); }
+.text-grey { color: var(--color-text-secondary); }

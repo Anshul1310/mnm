@@ -1,0 +1,112 @@
+/* --- Global Variables (Ensure these exist in index.css or here) --- */
+:root {
+  --color-accent: #fbbf24;
+  --color-bg-card: linear-gradient(135deg, #2c2c2e 0%, #1c1c1e 100%);
+}
+
+/* --- 3D Flip Container --- */
+.card-scene {
+  perspective: 1000px;
+  width: 100%;
+  height: 220px; /* Fixed height for the card */
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1); /* Smooth ease */
+  transform-style: preserve-3d;
+}
+
+.is-flipped {
+  transform: rotateY(180deg);
+}
+
+/* --- Face Defaults --- */
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden; /* Important for the diagonal line clipping */
+  border: 1px solid #333;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+/* --- Front Face (User Details) --- */
+.card-face-front {
+  background: var(--color-bg-card);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* --- Back Face (QR + Branding) --- */
+.card-face-back {
+  background: #18181b; /* Dark background matching screenshot */
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: row; /* Split left and right */
+}
+
+/* Left side of the back card (Logo area) */
+.back-left {
+  flex: 0.8; /* Takes up about 40% of width */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Right side of the back card (QR Area) */
+.back-right {
+  flex: 1.2; /* Takes up about 60% of width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  z-index: 2;
+}
+
+/* The Gold Diagonal Line */
+.diagonal-line {
+  position: absolute;
+  top: -50%;
+  right: -10px; /* Adjust position to match screenshot */
+  width: 2px;
+  height: 200%;
+  background-color: var(--color-accent);
+  transform: rotate(25deg);
+  z-index: 1;
+}
+
+/* Text styles specific to back card */
+.back-logo-text {
+  font-family: sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.back-subtitle {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
