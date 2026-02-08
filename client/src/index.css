@@ -13,6 +13,19 @@
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
+  --bg-primary: #1E1E1E;       /* Main dark background */
+  --bg-secondary: #2C2C2E;     /* Card background */
+  --bg-tertiary: #3A3A3C;      /* Pill/Badge background */
+  
+  --text-primary: #FFFFFF;     /* Main white text */
+  --text-secondary: #EBEBF5;   /* Secondary text */
+  --text-muted: #8E8E93;       /* Muted/Grey text */
+  
+  --accent-gold: #F2C94C;      /* The specific gold color from the UI */
+  
+  
+  --radius-md: 12px;
+  --radius-lg: 16px;
 }
 
 * {

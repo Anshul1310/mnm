@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Settings from './pages/Settings/Settings';
 import Login from './pages/Login/Login';
 import AuthCallback from './pages/AuthCallback/AuthCallback';
+import Home from './pages/Home/Home';
+import EventPage from './pages/Event/Event';
 
 function App() {
   return (
@@ -30,10 +32,12 @@ function App() {
         <Router>
           <Routes>
             {/* Setting Settings as the default route for this demo */}
-            <Route path="/" element={<Settings />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/" element={<Home />} />
             <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/event" element={<EventPage/>}/>
           </Routes>
         </Router>
       </div>
