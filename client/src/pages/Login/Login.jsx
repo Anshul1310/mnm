@@ -1,44 +1,40 @@
 import React, { useState } from 'react';
-import styles from './Login.module.css'; 
-import NfGoldLogo from './nf-gold-logo.png';
-
+import styles from './Login.module.css';
+import NfGoldLogo from './nf_logo.png';
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleAuthLogin = () => {
     setIsLoading(true);
-    // Redirect to backend
-    window.location.href = 'http://localhost:3000/settings'; 
+    // Redirect to backend (change port/path if needed)
+    window.location.href = 'http://localhost:3000/settings';
   };
 
   return (
     <div className={styles.appContainer}>
-      <div className={styles.backgroundLayer} />
-
       <div className={styles.loginScreen}>
         <div className={styles.content}>
-          
-          {/* Logo Section - Enters First */}
+          {/* Logo */}
           <div className={`${styles.logoContainer} ${styles.animateEntry} ${styles.delay1}`}>
-            <img 
-              src={NfGoldLogo} 
-              alt="NF Logo" 
-              className={styles.nfLogo} 
+            <img
+              src={NfGoldLogo}
+              alt="NF Logo"
+              className={styles.nfLogo}
             />
           </div>
 
-          {/* Headlines - Enters Second */}
+          {/* Headlines */}
           <div className={`${styles.headlines} ${styles.animateEntry} ${styles.delay2}`}>
             <h1 className={styles.headline1}>
-              Feel the Beat
+              <span className={styles.goldenText}>Feel</span> the Beat
             </h1>
             <h1 className={styles.headline2}>
-              Join the Fest.
+              Join the <span className={styles.goldenText}>Fest</span>.
             </h1>
           </div>
 
-          {/* Login Button - Enters Third */}
+          {/* Button */}
           <button
             className={`${styles.authButton} ${styles.animateEntry} ${styles.delay3}`}
             onClick={handleAuthLogin}
@@ -48,7 +44,7 @@ const Login = () => {
           </button>
         </div>
 
-        {/* Footer - Enters Last */}
+        {/* Footer */}
         <footer className={`${styles.credits} ${styles.animateEntry} ${styles.delay4}`}>
           Developed by Team NF WebOps
         </footer>
