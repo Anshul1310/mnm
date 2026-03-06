@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Event.module.css';
-import BackIcon from "./../../assets/back.png"; // Ensure this path is correct
+import BackIcon from "./../../assets/back.png";
 
 const EventPage = () => {
   const [activeTab, setActiveTab] = useState('about');

@@ -1,47 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Settings from './pages/Settings/Settings';
-import Login from './pages/Login/Login';
-import AuthCallback from './pages/AuthCallback/AuthCallback';
+import './App.css';
+
+// Import Pages
 import Home from './pages/Home/Home';
-import EventPage from './pages/Event/Event';
+import Login from './pages/Login/Login';
+import Event from './pages/Event/Event';
+import Settings from './pages/Settings/Settings';
+import AuthCallback from './pages/AuthCallback/AuthCallback';
+
+// Warning Component
+const MobileWarning = () => (
+  <div className="mobile-warning-overlay">
+    <div className="mobile-warning-card">
+      <div className="warning-icon">📱</div>
+      <h2>Mobile View Only</h2>
+      <p>This experience is designed for mobile screens.</p>
+      <p className="sub-text">Please open on your phone or resize your browser window.</p>
+    </div>
+  </div>
+);
 
 function App() {
-  return (
-    <>
-      {/* Warning screen for desktop users */}
-      <div 
-        className="mobile-only-warning" 
-        style={{
-          display: 'none', 
-          height: '100vh', 
-          width: '100vw', 
-          alignItems: 'center', 
-          justifyContent: 'center', 
-          flexDirection: 'column',
-          backgroundColor: '#121212',
-          color: '#fbbf24'
-        }}
-      >
-        <h1>Mobile Device Only</h1>
-        <p style={{color: '#fff', marginTop: '10px'}}>Please access this app on a mobile device.</p>
-      </div>
+  // State to track if the screen is mobile width (<= 768px)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-      {/* Main App Content */}
-      <div className="app-content">
-        <Router>
-          <Routes>
-            {/* Setting Settings as the default route for this demo */}
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/auth/callback" element={<AuthCallback />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/event" element={<EventPage/>}/>
-          </Routes>
-        </Router>
-      </div>
-    </>
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup listener
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // If not mobile, show warning
+  if (!isMobile) {
+    return <MobileWarning />;
+  }
+
+  // If mobile, show the app
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/auth/callback" element={<AuthCallback />} />
+      </Routes>
+    </Router>
   );
 }
 

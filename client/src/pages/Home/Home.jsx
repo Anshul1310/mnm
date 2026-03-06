@@ -12,7 +12,6 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
-      {/* Header Section */}
       <div className={styles.header}>
         <span className={styles.time}>9:41</span>
         <div className={styles.statusBar}>
@@ -22,13 +21,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* NEW: Welcome Row with Avatar */}
       <div className={styles.welcomeRow}>
         <div className={styles.avatar}>A</div>
         <h1 className={styles.title}>Welcome</h1>
       </div>
 
-      {/* Animated & Clickable Event Card */}
       <div 
         className={styles.eventCard} 
         onClick={handleCardClick}

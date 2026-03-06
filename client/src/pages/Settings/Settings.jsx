@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 import classes from './Settings.module.css';
-
-// Assets
-import PhoneIcon from '../../../src/assets/notification.png';           
-import HeadsetIcon from '../../../src/assets/helpdesk.png';     
-import PurpleIcon from '../../../src/assets/purple_icon.png';     // Your custom left icon
+import PhoneIcon from '../../../src/assets/notification.png';
+import HeadsetIcon from '../../../src/assets/helpdesk.png';
+import PurpleIcon from '../../../src/assets/purple_icon.png';
 import NFLogo from '../../../src/assets/nf_logo.png';
 
 const Settings = () => {
@@ -61,17 +59,14 @@ const Settings = () => {
       <header className={classes.header}>
         <h1>Settings</h1>
       </header>
-
-      {/* ID Card - flippable */}
+      
       <div className={classes.cardScene} onClick={handleCardClick}>
         <div className={`${classes.cardInner} ${isFlipped ? classes.isFlipped : ''}`}>
-          {/* Front */}
           <div className={`${classes.card} ${classes.cardFront}`}>
             <div className={classes.goldSlash} style={{ right: '35%' }} />
             <div className={classes.goldSlash} style={{ right: '32%', opacity: 0.3 }} />
 
             <div className={classes.cardHeader}>
-              {/* Custom left icon */}
               <img
                 src={PurpleIcon}
                 alt="Brand Icon"
@@ -83,8 +78,7 @@ const Settings = () => {
                 <p>{user.roll}</p>
               </div>
 
-              {/* Custom NF logo */}
-              
+
             </div>
 
             <div className={classes.cardFooter}>
@@ -93,17 +87,16 @@ const Settings = () => {
             </div>
           </div>
 
-          {/* Back */}
           <div className={`${classes.card} ${classes.cardBack}`}>
             <div className={classes.diagonalLine} />
             <div className={classes.backLeft}>
-                <img
-                  src={NFLogo}
-                  alt="NF Logo"
-                  className={classes.backNFLogo}
-                />
-                <div className={classes.scanText}>SCAN ME</div>
-              </div>
+              <img
+                src={NFLogo}
+                alt="NF Logo"
+                className={classes.backNFLogo}
+              />
+              <div className={classes.scanText}>SCAN ME</div>
+            </div>
             <div className={classes.backRight}>
               <div className={classes.qrWrapper}>
                 <QRCode
@@ -118,7 +111,6 @@ const Settings = () => {
         </div>
       </div>
 
-      {/* System Section */}
       <div className={`${classes.sectionWrapper} ${classes.delay2}`}>
         <h3 className={classes.sectionTitle}>SYSTEM</h3>
         <div className={classes.sectionContent}>
@@ -139,7 +131,6 @@ const Settings = () => {
         </div>
       </div>
 
-      {/* Support Card */}
       <div className={`${classes.sectionWrapper} ${classes.delay3}`}>
         <div className={classes.supportCard}>
           <img src={HeadsetIcon} alt="Support" className={classes.supportIcon} />

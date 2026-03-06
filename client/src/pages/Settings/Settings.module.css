@@ -2,6 +2,7 @@
    SETTINGS PAGE
    Updated: Adjusted for 143px card height
    ============================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --color-accent: #d4af35;
@@ -86,6 +87,7 @@
   opacity: 0.55;
 }
 
+
 .diagonalLine {
   position: absolute;
   right: -12px;
@@ -100,18 +102,20 @@
 .cardHeader {
   display: flex;
   align-items: center;
+
   gap: 0.8rem;
   position: relative;
   z-index: 2;
-  margin-top: 0.2rem;
+  margin-top: 15px;
 }
 
 /* ─── Custom left icon (purple_icon.png) ───────────────────────────────────── */
 .brandIcon {
-  width: 52px;  /* Reduced from 96px */
-  height: 52px; /* Reduced from 96px */
+  width: 80px;  /* Reduced from 96px */
+  height: 80px; /* Reduced from 96px */
   object-fit: contain;
   flex-shrink: 0;
+  font-family: "Montserrat";
   margin: 0;    /* Removed margin-top: 40px to fit */
 }
 
